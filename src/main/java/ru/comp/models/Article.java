@@ -21,20 +21,22 @@ public class Article implements Serializable{
 
     public String title;
     public String desc;
+    public String link;
 
     public Article(){}
-    public Article(String title, String desc)
+    public Article(String title, String desc, String link)
     {
         this.title = title;
         this.desc = desc;
+        this.link = link;
     }
 
     @Override
     public String toString()
     {
         return String.format(
-                "Article[id=%s, title='%s', desc='%s']",
-                id, title, desc);
+                "Article[id=%s, title='%s', desc='%s', link='%s']",
+                id, title, desc, link);
     }
 
     public String getId() {
@@ -55,4 +57,6 @@ public class Article implements Serializable{
     public void setDesc(String desc) {
         this.desc = desc;
     }
+    public String getLink() {return link;}
+    public void setLink(String link) {this.link = link;}
 }

@@ -36,13 +36,19 @@
             ${article.desc}
             </p>
         </article>
-        <a class="btn btn-info pull-right marginBottom10" href="http://bootsnipp.com/user/snippets/2RoQ">READ MORE</a>
+        <a class="btn btn-info pull-right marginBottom10" href="${article.link}">READ MORE</a>
     </div>
     </c:forEach>
 </div>
 
-<footer class="panel-footer">
-
+<footer class="footer">
+    <div class="navbar navbar-inverse navbar-fixed-bottom row-fluid">
+        <div class="navbar-inner">
+            <div class="container">
+                <p class="text-muted">&copy; Тестовое задание Spring</p>
+            </div>
+        </div>
+    </div>
 </footer>
 </body>
 </html>

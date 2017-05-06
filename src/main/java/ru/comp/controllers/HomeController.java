@@ -54,6 +54,6 @@ public class HomeController {
         else
             articleService.update(article);
 
-        return "redirect:/";
+        return "added";
     }
 }

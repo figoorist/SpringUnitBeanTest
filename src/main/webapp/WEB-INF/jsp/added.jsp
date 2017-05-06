@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Viktor
-  Date: 05.05.2017
-  Time: 16:52
+  Date: 06.05.2017
+  Time: 14:54
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -33,31 +33,13 @@
 </nav>
 
 <div class="container">
-    <h2>Добавление статьи</h2>
+    <div class="row">
+        <h2 class="">Поздравляем! Статья добавлена!</h2>
+    </div>
     <br/>
-    <form:form method="post" action="/add" modelAttribute="article">
-        <div class="form-group">
-            <label for="articleTitle">Заголовок:</label>
-            <form:input type="text" path="title" class="form-control" id="articleTitle" placeholder="Заголовок статьи"/>
-        </div>
-        <div class="form-group">
-            <label for="articleDesc">Описание:</label>
-            <form:textarea class="form-control" path="desc" rows="10" id="articleDesc" placeholder="Описание статьи"></form:textarea>
-        </div>
-        <div class="form-group">
-            <label for="articleLink">Ссылка на статью:</label>
-            <form:input type="text" path="link" class="form-control" id="articleLink" placeholder="Ссылка на статью"/>
-        </div>
-        <div class="row">
-            <div class="col-md-1 pull-right">
-                <a class="btn btn-default" href="/">Отмена</a>
-            </div>
-            <div class="col-md-1 pull-right">
-                <button type="submit" class="btn pull-right btn-primary">Добавить</button>
-            </div>
-
-        </div>
-    </form:form>
+    <div class="row">
+        <a class="btn btn-primary" href="/">На главную</a>
+    </div>
 </div>
 <br/>
 <footer class="footer">
