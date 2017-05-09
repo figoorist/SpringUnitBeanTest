@@ -24,13 +24,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">SpringUnitBeanTest</a>
-        </div>
-    </div>
-</nav>
+<jsp:include page="header.jsp"/>
 
 <div class="container">
     <h2>Добавление статьи</h2>
@@ -50,11 +44,11 @@
             <form:input type="text" path="link" class="form-control" id="articleLink" placeholder="Ссылка на статью"/>
         </div>
         <div class="row">
-            <div class="col-md-1 pull-right">
-                <a class="btn btn-default" href="/">Отмена</a>
+            <div class="col-md-2 pull-right">
+                <a class="btn btn-default btn-block" href="/">Отмена</a>
             </div>
-            <div class="col-md-1 pull-right">
-                <button type="submit" class="btn pull-right btn-primary">Добавить</button>
+            <div class="col-md-2 pull-right">
+                <button type="submit" class="btn btn-primary btn-block">Добавить</button>
             </div>
 
         </div>
@@ -63,14 +57,6 @@
 </div>
 <br/>
 <br/><br/>
-<footer class="footer">
-    <div class="navbar navbar-inverse navbar-fixed-bottom row-fluid">
-        <div class="navbar-inner">
-            <div class="container">
-                <p class="text-muted">&copy; Тестовое задание Spring</p>
-            </div>
-        </div>
-    </div>
-</footer>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

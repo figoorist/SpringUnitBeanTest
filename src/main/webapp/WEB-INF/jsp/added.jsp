@@ -24,13 +24,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">SpringUnitBeanTest</a>
-        </div>
-    </div>
-</nav>
+<jsp:include page="header.jsp"/>
 
 <div class="container">
     <div class="row">
@@ -38,18 +32,11 @@
     </div>
     <br/>
     <div class="row">
+        <a class="btn btn-info" href="/add">Добавить ещё одну</a>
         <a class="btn btn-primary" href="/">На главную</a>
     </div>
 </div>
 <br/>
-<footer class="footer">
-    <div class="navbar navbar-inverse navbar-fixed-bottom row-fluid">
-        <div class="navbar-inner">
-            <div class="container">
-                <p class="text-muted">&copy; Тестовое задание Spring</p>
-            </div>
-        </div>
-    </div>
-</footer>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

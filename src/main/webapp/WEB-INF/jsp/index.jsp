@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="prinng" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -27,50 +28,48 @@
 </head>
 
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">SpringUnitBeanTest</a>
-        </div>
-    </div>
-</nav>
+<jsp:include page="header.jsp"/>
 
 <div class="container">
     <div class="col-md-9">
-        <a class="btn btn-primary pull-right marginBottom10" href="/add">Добавить статью</a>
-    </div>
-    <c:forEach var="article" items = "${articles}">
-    <div class="col-md-9" id="article-${article.id}">
-        <h1>${article.title}</h1>
-        <img src="/resources/images/pic.png" class="pull-left img-responsive thumb margin10 img-thumbnail">
-        <article>
-            <p>
-            ${article.desc}
-            </p>
-        </article>
         <div class="row">
-            <div class="col-md-2 pull-right">
-                <a class="btn btn-info pull-right marginBottom10" href="${article.link}">К СТАТЬЕ</a>
-            </div>
-            <div class="col-md-2 pull-right">
-                <a type="button" class="btn btn-danger pull-right triggerDelete" data-articleid="${article.id}">Удалить</a>
-            </div>
+            <a class="btn btn-primary pull-right marginBottom10" href="/add">Добавить статью</a>
         </div>
-        <hr/>
+        <c:choose>
+            <c:when test="${fn:length(articles) > 0}">
+                <c:forEach var="article" items = "${articles}">
+                    <div class="row">
+                        <h1>${article.title}</h1>
+                    </div>
+                    <div class="row">
+                        <img src="/resources/images/pic.png" class="pull-left img-responsive thumb margin10 img-thumbnail">
+                    </div>
+                    <div class="row">
+                        <article>
+                            <p>
+                                ${article.desc}
+                            </p>
+                        </article>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 pull-right"><a class="btn btn-info btn-block marginBottom10" href="${article.link}">Подробнее</a></div>
+                        <div class="col-md-2 pull-right"><a type="button" class="btn btn-danger btn-block triggerDelete" data-articleid="${article.id}">Удалить</a></div>
+                    </div>
+                    <hr/>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <br />
+                <div class="row">
+                    <div class="alert alert-warning" role="alert">Статей нет</div>
+                </div>
+            </c:otherwise>
+        </c:choose>
     </div>
-    </c:forEach>
 </div>
 <br/>
 <br/>
-<footer class="footer">
-    <div class="navbar navbar-inverse navbar-fixed-bottom row-fluid">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12"><p class="text-muted">&copy; Тестовое задание Spring</p></div>
-            </div>
-        </div>
-    </div>
-</footer>
+<jsp:include page="footer.jsp"/>
 
 <!-- Модаль -->
 <div class="modal fade" id="confirmDeletingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
