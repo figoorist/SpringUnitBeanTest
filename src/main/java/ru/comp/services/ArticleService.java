@@ -26,4 +26,8 @@ public class ArticleService {
     public List<Article> getAll() {
         return articleDao.getAll();
     }
+
+    public void remove(String id) {
+        articleDao.remove(id);
+    }
 }

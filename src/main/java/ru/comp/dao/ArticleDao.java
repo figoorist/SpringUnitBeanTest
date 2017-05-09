@@ -23,4 +23,8 @@ public class ArticleDao {
     public List<Article> getAll() {
         return mongoOperations.findAll(Article.class);
     }
+
+    public void remove(String id) {
+        mongoOperations.remove(Query.query(Criteria.where("id").is(id)), Article.class);
+    }
 }

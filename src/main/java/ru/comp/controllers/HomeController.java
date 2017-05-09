@@ -2,10 +2,7 @@ package ru.comp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ru.comp.models.Article;
 import ru.comp.services.ArticleService;
@@ -55,5 +52,12 @@ public class HomeController {
             articleService.update(article);
 
         return "added";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deleteArticle(@RequestParam(required =true) String id) {
+        articleService.remove(id);
+
+        return "redirect:/";
     }
 }
