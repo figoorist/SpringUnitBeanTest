@@ -23,6 +23,7 @@ public class Article implements Serializable{
     public String title;
     public String desc;
     public Date createdAt;
+    public String image;
 
     public Article(){
         this.createdAt = new Date();
@@ -54,11 +55,18 @@ public class Article implements Serializable{
     public void setTitle(String title) {
         this.title = title;
     }
+
     public String getDesc() {
         return desc;
     }
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
     public Date getCreatedAt(){ return createdAt;}
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    public String getImage(){ return image;}
 }

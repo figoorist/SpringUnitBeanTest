@@ -90,4 +90,9 @@ body, div, button,a,p,h1,h2,h3,h4,h5,h6{
 .publicaciones-blog-home .fondo-publicacion-home .img-publicacion-home  {
     overflow: hidden;
     max-height: 130px;
+    filter: grayscale(100%);
+}
+
+.publicaciones-blog-home .fondo-publicacion-home .img-publicacion-home:hover{
+    filter: grayscale(0%);
 }

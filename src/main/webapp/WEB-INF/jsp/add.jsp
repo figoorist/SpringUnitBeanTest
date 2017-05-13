@@ -39,12 +39,24 @@
             <label for="articleDesc">Описание</label>
             <form:textarea class="form-control" required="required" path="desc" rows="7" id="articleDesc" placeholder="Описание статьи"></form:textarea>
         </div>
-
-        <label for="loadImgButton">Прикрепить изображение</label>
+        <h5>Прикрепить изображение</h5>
         <div class="row">
             <div class="col-md-2">
-                <a id="loadImgButton" class="btn btn-default btn-block" href="#"><img class="addImage" src="/resources/images/load_img.png"></a>
+                <label class="btn btn-default btn-block">
+                    <img class="addImage" src="/resources/images/load_img.png"><form:input path="image" type="file" accept="image/jpeg,image/png,image/gif" style="display: none;"/>
+                </label>
             </div>
+
+            <div class="input-group">
+                <label class="input-group-btn">
+                    <span class="btn btn-default btn-block">
+                        <img class="addImage" src="/resources/images/load_img.png">
+                        <form:input path="image" type="file" accept="image/jpeg,image/png,image/gif" style="display: none;"/>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+            </div>
+
             <div class="col-md-3 pull-right">
                 <button type="submit" class="btn btn-primary btn-block">Добавить</button>
             </div>

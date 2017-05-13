@@ -59,7 +59,9 @@
                             <h3>${article.title}</h3>
                             <h6><fmt:formatDate value="${article.createdAt}" pattern="dd MMM, yyyy" /></h6>
                             <hr/>
-                            <p>${article.desc}<span>...</span></p>
+                            <article>
+                                <p>${article.desc}</p>
+                            </article>
                         </div>
                     </a>
                 </div>
