@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by Viktor on 05.05.2017.
@@ -21,22 +22,24 @@ public class Article implements Serializable{
 
     public String title;
     public String desc;
-    public String link;
+    public Date createdAt;
 
-    public Article(){}
-    public Article(String title, String desc, String link)
+    public Article(){
+        this.createdAt = new Date();
+    }
+    public Article(String title, String desc)
     {
         this.title = title;
         this.desc = desc;
-        this.link = link;
+        this.createdAt = new Date();
     }
 
     @Override
     public String toString()
     {
         return String.format(
-                "Article[id=%s, title='%s', desc='%s', link='%s']",
-                id, title, desc, link);
+                "Article[id=%s, title='%s', desc='%s']",
+                id, title, desc);
     }
 
     public String getId() {
@@ -57,6 +60,5 @@ public class Article implements Serializable{
     public void setDesc(String desc) {
         this.desc = desc;
     }
-    public String getLink() {return link;}
-    public void setLink(String link) {this.link = link;}
+    public Date getCreatedAt(){ return createdAt;}
 }
