@@ -47,16 +47,6 @@
                 </label>
             </div>
 
-            <div class="input-group">
-                <label class="input-group-btn">
-                    <span class="btn btn-default btn-block">
-                        <img class="addImage" src="/resources/images/load_img.png">
-                        <form:input path="image" type="file" accept="image/jpeg,image/png,image/gif" style="display: none;"/>
-                    </span>
-                </label>
-                <input type="text" class="form-control" readonly>
-            </div>
-
             <div class="col-md-3 pull-right">
                 <button type="submit" class="btn btn-primary btn-block">Добавить</button>
             </div>
