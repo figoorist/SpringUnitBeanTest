@@ -3,9 +3,14 @@ package ru.comp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import ru.comp.models.Article;
 import ru.comp.services.ArticleService;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 
 /**
  * Created by Viktor on 05.05.2017.
@@ -17,7 +22,7 @@ import ru.comp.services.ArticleService;
 @Controller
 public class HomeController {
     @Autowired private ArticleService articleService;
-
+    private static String UPLOAD_FOLDER = "/home/SpringUnitBeanTest/src/main/webapp/resources/pictures";
     /**
      * Гланая страница - получение всех статей
      * @return
@@ -45,13 +50,37 @@ public class HomeController {
      * @return
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String addArticle(@ModelAttribute("article") Article article){
-        if(article.getId() == null)
-            articleService.add(article);
-        else
-            articleService.update(article);
+    public String addArticle(@ModelAttribute("article") Article article
+                             ,@RequestParam("imagefile") MultipartFile imagefile
+    ){
+        String name = null;
+        try
+        {
+            byte[] bytes = imagefile.getBytes();
+            name = imagefile.getOriginalFilename();
+            File dir = new File(UPLOAD_FOLDER);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
 
-        return "added";
+            File uploadedFile = new File(dir.getAbsolutePath() + File.separator + name);
+
+            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(uploadedFile));
+            stream.write(bytes);
+            stream.flush();
+            stream.close();
+            article.image = name;
+        }
+        catch (Exception e) {}
+        finally
+        {
+            if(article.getId() == null)
+                articleService.add(article);
+            else
+                articleService.update(article);
+
+            return "added";
+        }
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)

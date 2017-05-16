@@ -30,7 +30,7 @@
 <div class="container container-add">
     <h2>Добавление статьи</h2>
     <br/>
-    <form:form method="post" action="/add" modelAttribute="article">
+    <form:form method="post" action="/add" modelAttribute="article" enctype="multipart/form-data">
         <div class="form-group">
             <label for="articleTitle">Заголовок</label>
             <form:input type="text" required="required" path="title" class="form-control" id="articleTitle" placeholder="Заголовок статьи"/>
@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-md-3 col-lg-2 col-sm-3 col-xs-3">
                 <label class="btn btn-default btn-block" style="height: 33px;">
-                    <form:input class="inputFile" path="image" type="file" accept="image/jpeg,image/png,image/gif" style="display: none;"/>
+                    <input class="inputFile" name="imagefile" type="file" accept="image/jpeg,image/png,image/gif" style="display: none;"/>
                     <img class="attachImage" src="/resources/images/load_img.png">
                 </label>
             </div>

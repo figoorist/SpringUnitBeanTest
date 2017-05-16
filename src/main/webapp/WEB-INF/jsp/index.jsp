@@ -55,7 +55,7 @@
                     </a>
                     <a href=""  class="fondo-publicacion-home">
                         <div class="img-publicacion-home">
-                            <img class="img-responsive" src="/resources/images/pic.png">
+                            <img class="img-responsive" src="/resources/pictures/${article.image}">
                         </div>
                         <div class="contenido-publicacion-home">
                             <h3>${article.title}</h3>
